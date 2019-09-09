@@ -37,15 +37,6 @@ const currentAwayTeam = 'Tigers';
     
   }
 
-  // const fieldScore = (teamName, amount) => {
-  //   if (teamName === 'Tigers'){
-  //     homeSetValue(homeValue + amount)
-  //   }else{
-  //     awaySetValue(homeValue + amount)
-  //   }
-    
-  // }
-
   return (
     <div className="container">
       <section className="scoreboard">
