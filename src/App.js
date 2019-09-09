@@ -8,21 +8,43 @@ function App() {
   const [homeValue, homeSetValue] = useState(32);
   const [awayValue, awaySetValue] = useState(32);
 
-  const homeTouchDownScore =()=>{
-    homeSetValue(homeValue+7);
+  // const homeTouchDownScore =()=>{
+  //   homeSetValue(homeValue+7);
+  // }
+
+  // const awayTouchDownScore=()=>{
+  //   awaySetValue(awayValue+7);
+  // }
+
+  // const homeFieldScore=()=>{
+  //   homeSetValue(homeValue + 3);
+  // }
+
+  // const awayFieldScore=()=>{
+  //   awaySetValue(awayValue + 3);
+  // }
+const touchDownAmount = 7;
+const fieldAmount = 3;
+const currentHomeTeam = 'Lions';
+const currentAwayTeam = 'Tigers';
+
+  const points = (teamName, amount) => {
+    if (teamName === 'Lions'){
+      return()=>{homeSetValue(homeValue + amount)}
+    }else{
+      return ()=>{awaySetValue(awayValue + amount)}
+    }
+    
   }
 
-  const awayTouchDownScore=()=>{
-    awaySetValue(awayValue+7);
-  }
-
-  const homeFieldScore=()=>{
-    homeSetValue(homeValue+3);
-  }
-
-  const awayFieldScore=()=>{
-    awaySetValue(awayValue+3);
-  }
+  // const fieldScore = (teamName, amount) => {
+  //   if (teamName === 'Tigers'){
+  //     homeSetValue(homeValue + amount)
+  //   }else{
+  //     awaySetValue(homeValue + amount)
+  //   }
+    
+  // }
 
   return (
     <div className="container">
@@ -46,12 +68,12 @@ function App() {
       <section className="buttons">
         <div className="homeButtons">
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button onClick={homeTouchDownScore} className="homeButtons__touchdown">Home Touchdown</button>
-          <button onClick={homeFieldScore} className="homeButtons__fieldGoal">Home Field Goal</button>
+          <button onClick={points(currentHomeTeam,touchDownAmount)} className="homeButtons__touchdown">Home Touchdown</button>
+          <button onClick={points(currentHomeTeam,fieldAmount)} className="homeButtons__fieldGoal">Home Field Goal</button>
         </div>
         <div className="awayButtons">
-          <button onClick={awayTouchDownScore} className="awayButtons__touchdown">Away Touchdown</button>
-          <button onClick={awayFieldScore} className="awayButtons__fieldGoal">Away Field Goal</button>
+          <button onClick={points(currentAwayTeam,touchDownAmount)} className="awayButtons__touchdown">Away Touchdown</button>
+          <button onClick={points(currentAwayTeam,fieldAmount)} className="awayButtons__fieldGoal">Away Field Goal</button>
         </div>
       </section>
     </div>
